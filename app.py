@@ -390,36 +390,34 @@ df
 # ADVERTENCIA DEL MODELO - ESTILO VAMPÍRICO
 # ==========================================
 
+# Estilo vampírico para st.warning()
 st.markdown("""
-<div style="
-    background: linear-gradient(135deg, #240D1C, #4A1025);
-    border: 2px solid #D4AF37;
-    border-left: 6px solid #C1121F;
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.25);
-">
-    <h3 style="
-        color: #FFFFFF !important;
-        margin: 0 0 10px 0;
-    ">
-        🩸 Precisión del modelo
-    </h3>
+<style>
+[data-testid="stAlert"],
+[data-testid="stAlertContainer"],
+[data-testid="stAlert"] [role="alert"] {
+    background-color: #4A1025 !important;
+    color: #FFFFFF !important;
+    border-radius: 12px !important;
+}
 
-    <p style="
-        color: #FFFFFF !important;
-        font-size: 16px;
-        margin: 0;
-        line-height: 1.7;
-    ">
-        El modelo de Árbol de Decisión obtuvo un
-        <strong style="color:#FFD700;">
-            MAPE del 5,09 %
-        </strong>
-        en el conjunto de prueba.
-        Este valor representa el error porcentual
-        absoluto medio de sus predicciones.
-    </p>
-</div>
+[data-testid="stAlert"] {
+    border: 2px solid #D4AF37 !important;
+    border-left: 6px solid #C1121F !important;
+}
+
+[data-testid="stAlert"] p,
+[data-testid="stAlert"] span,
+[data-testid="stAlert"] strong {
+    color: #FFFFFF !important;
+    font-size: 16px !important;
+}
+</style>
 """, unsafe_allow_html=True)
+
+# Recordar medida de error del modelo
+st.warning(
+    "🩸 **Error del modelo:** MAPE del 5,09 %. "
+    "Este valor representa el error porcentual "
+    "absoluto medio obtenido durante la evaluación."
+)
